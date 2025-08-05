@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class=" bg-dark text-white">
+    <!-- navbar  -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-5">
+        <a class="navbar-brand" href="#">Asadulah</a>
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarnav">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarnav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#cp">CP</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contacts">Contacts</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- main  -->
+    <section class="container text-center my-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-md-start">
+                <h3>Hello,</h3>
+                <h1 class="display-4 fw-bold">I'm Asadullah</h1>
+                <h2 class="text-warning">Competitive Programmer</h2>
+                <div class="mt-4">
+                    <a href="#" class="btn btn-danger me-3">Got a project?</a>
+                    <a href="#" class="btn btn-outline-light text-muted fw-bold">My Resume</a>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 ">
+                <img src="images/programmer.png" alt="My photo">
+            </div>
+        </div>
+    </section>
+    <!-- about  -->
+    <section class="container my-5" id="about">
+        <h2 class="text-warning mb-3">About Me</h2>
+        <p> I'm a passionate competitive programmer and Front-end developer</p>
+    </section>
+    <!-- skills  -->
+    <section class="container my-5" id="skills">
+        <h2 class="text-warning mb-3">Skills</h2>
+        <div class="row">
+            <div class="col-md-4"><p>⚙️ C, C++, DSA, STL, Algorithms</p></div>
+            <div class="col-md-4"><p>🌐 HTML, CSS, JavaScript, Bootstrap</p></div>
+            <div class="col-md-4"><p>🌱 Django (Basic), Git</p></div>
+        </div>
+    </section>
+    <!-- cp profiles  -->
+     <section class="container my-5" id="cp">
+        <h2 class="text-warning mb-3">Competitive Programming</h2>
+        <ul class="list-unstyled text-muted">
+            <li><a href="https://codeforces.com/profile/AsadGalib"  target="_blank" class="text-info text-decoration-none d-inline-block mb-2">🔗Codeforces</a></li>
+            <li><a href="https://www.codechef.com/users/asad_galib" target="_blank" class="text-info text-decoration-none d-inline-bloc mb-2">🔗Codechef</a></li>
+            <li><a href="https://atcoder.jp/users/asad_galib" target="_blank" class="text-info text-decoration-none d-inline-bloc mb-2 ">🔗Atcoder</a></li>
+        </ul>
+     </section>
+    <!-- projects -->
+    <section class="container my-5" id="projects">
+        <h2 class="text-warning mb-4">Projects</h2>
+        <div class="row g-4 gap-5">
+            <div class="col-md-3 card bg-secondary text-white">
+                    <div class="card-body ">
+                        <h5 class="card-title fw-bold">Portfolio Website</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
+                        <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
+                </div>
+            </div>
+            <div class="col-md-3 card bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Food website</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
+                        <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
+                </div>
+            </div>
+            <div class="col-md-3 card bg-secondary text-white">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">E-commerce Website</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
+                        <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- contact  -->
+     <section class="container my-5" id="contacts">
+        <h2 class="text-warning mb-3">Contact Me</h2>
+        <p>Want to collaborate or ask something? Reach out using the form below.</p>
+        <form action="">
+            <input type="text" class="form-control my-2" placeholder="Your Name">
+            <input type="email" class="form-control my-2" placeholder="Your Email">
+            <textarea name="" class="form-control my-2" rows="4" placeholder="Your Message" id=""></textarea>
+            <button type="submit" class="btn btn-warning mt-2">Send Message</button>
+        </form>
+     </section>
+     <!-- footer  -->
+     <footer class="text-center text-muted py-3 border-top mt-5">
+        &copy; 2025 Asadullah. All rights reserved.
+     </footer>
+
+    <script src="bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+</html>
