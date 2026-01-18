@@ -1,0 +1,279 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <!-- font awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Cursor light effect
+            const light = document.querySelector(".cursor-light");
+            document.addEventListener("mousemove", (e) => {
+                light.style.left = e.clientX + "px";
+                light.style.top = e.clientY + "px";
+            });
+
+            // Get all nav links and sections
+            const navLinks = document.querySelectorAll('.nav-anim');
+            const sections = document.querySelectorAll('section[id]');
+
+            // Click handler
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Scroll spy functionality
+            function activateNavOnScroll() {
+                let currentSection = '';
+                const scrollPosition = window.scrollY + 200; // Offset for better detection
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionId = section.getAttribute('id');
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = sectionId;
+                    }
+                });
+
+                // Remove active class from all links
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    // Add active class to the link that matches current section
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Run on scroll
+            window.addEventListener('scroll', activateNavOnScroll);
+
+            // Run once on page load
+            activateNavOnScroll();
+        });
+    </script>
+</head>
+<div class="cursor-light"></div>
+
+<body class="container-fluid">
+    <!-- navbar  -->
+    <div class="row">
+        <div class=" col-md-6 col-sm-12 left">
+            <!-- main  -->
+            <section class="container text-center my-5">
+                <div class="row align-items-center">
+                    <div class=" text-md-start">
+                        <h1 class="display-4 fw-bold" style="color: #E2e8F0; font-size:48px;">Asad Galib</h1>
+                        <h4 class="fw-bold" style="color:  #E2e8F0;">Competitive Programmer</h4>
+                        <p>I build accessible, pixel-perfect digital <br> experiences for the web.</p>
+                    </div>
+                </div>
+            </section>
+            <!-- nav  -->
+            <section class="container my-5 nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link nav-anim" href="#about">
+                            <span class="dash"></span>ABOUT
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-anim" href="#skills">
+                            <span class="dash"></span>SKILLS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-anim" href="#cp">
+                            <span class="dash"></span>CP
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-anim" href="#projects">
+                            <span class="dash"></span>PROJECTS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-anim" href="#contacts">
+                            <span class="dash"></span>CONTACTS
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+            <!-- social profile  -->
+            <section class=" social-section">
+                <ul class="container social-icon-container">
+                    <li><i class="fa-brands fa-square-github social-icon"></i></li>
+                    <li><i class="fa-brands fa-linkedin social-icon"></i></li>
+                    <li><i class="fa-brands fa-square-facebook social-icon"></i></li>
+                    <li><i class="fa-brands fa-square-x-twitter social-icon"></i></li>
+                </ul>
+            </section>
+
+
+        </div>
+        <div class="col-md-6 col-sm-12 right">
+            <!-- about  -->
+            <section class="container about my- 5 " id="about">
+                <h2 class="text-warning mb-3 section-title">About Me</h2>
+                <p> I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend
+                    thoughtful design with robust engineering. My favorite work lies at the intersection of design and
+                    development, creating experiences that not only look great but are meticulously built for
+                    performance and usability.</p>
+                <p>I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend
+                    thoughtful design with robust engineering. My favorite work lies at the intersection of design and
+                    development, creating experiences that not only look great but are meticulously built for
+                    performance and usability.</p>
+                <p>In my spare time, I’m usually climbing, playing tennis, hanging out with my wife and two cats, or
+                    running around Hyrule searching for Korok seeds.
+                </p>
+            </section>
+            <!-- skills  -->
+            <section class="container my-5 " id="skills">
+                <h2 class="text-warning mb-3 section-title">Skills</h2>
+                <div class="row">
+                    <div class="my-2">
+                        <p>⚙️ <span style="font-weight: bold; font-size: medium;">Competitive Programming</span> => C,
+                            C++, DSA, STL, Algorithms</p>
+                    </div>
+                    <div class="my-2">
+                        <p>🌐 <span style="font-weight: bold; font-size: medium;">Web Development</span>=> HTML, CSS,
+                            JavaScript, Bootstrap, Django</p>
+                    </div>
+                    <div class="my-2">
+                        <p>🌐 <span style="font-weight: bold; font-size: medium;">App Development</span>=>
+                            Flutter,Dart,Cross-platform Apps</p>
+                    </div>
+                    <div class="my-2">
+                        <p>🌱 <span style="font-weight: bold; font-size: medium;">Tools</span>=> VSCode, Git, Github</p>
+                    </div>
+                </div>
+            </section>
+            <!-- cp profiles  -->
+            <section class="container my-5 " id="cp">
+                <h2 class="text-warning mb-3 section-title">Competitive Programming</h2>
+                <ul class="list-unstyled text-muted">
+                    <li class="cp-judge">
+                        <a href="https://codeforces.com/profile/AsadGalib" target="_blank" class="cp-anchor">
+                            <div class="cp-link">
+                                <p class="cp-title">
+                                    <img src="{% static 'images/codeforces.png' %}" class="cp-icon" alt="">
+                                    Codeforces
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                </p>
+
+                                <p class="cp-details">
+                                    A highly competitive platform with regular contests that helps me
+                                    strengthen algorithmic thinking, debugging skills, and performance under time
+                                    pressure.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+
+                    <li class="cp-judge">
+                        <a href="https://www.codechef.com/users/asad_galib" target="_blank" class="cp-anchor">
+                            <div class="cp-link">
+                                <p class="cp-title">
+                                    <img src="{% static 'images/codechef.png' %}" class="cp-icon codechef-icon">
+                                    CodeChef
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                </p>
+                                <p class="cp-details">
+                                    I use CodeChef for long challenges, starters, and practice problems that focus on
+                                    implementation skills and mathematical thinking.
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="cp-judge"><a href="https://atcoder.jp/users/asad_galib" target="_blank"
+                            class="cp-anchor ">
+                            <div class="cp-link">
+                                <p class="cp-title">
+                                    <img src="https://img.atcoder.jp/assets/top/img/logo_bk.svg"
+                                        class="cp-icon atcoder-icon">
+                                    AtCoder
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                </p>
+                                <p class="cp-details">AtCoder offers high-quality problems with a strong focus on clean
+                                    logic
+                                    and precision,
+                                    helping me improve accuracy and efficiency.</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- projects -->
+            <section class="container my-5 " id="projects">
+                <h2 class="text-warning mb-4 section-title">Projects</h2>
+                <div class="g-4 gap-5">
+                    <div class="card bg-secondary text-white my-3">
+                        <div class="card-body ">
+                            <h5 class="card-title fw-bold">Portfolio Website</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat
+                                aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
+                            <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
+                        </div>
+                    </div>
+                    <div class=" card bg-secondary text-white my-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">Food website</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat
+                                aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
+                            <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
+                        </div>
+                    </div>
+                    <div class=" card bg-secondary text-white my-3">
+                        <div class="card-body">
+                            <h5 class="card-title fw-bold">E-commerce Website</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat
+                                aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
+                            <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </section>
+            <!-- contact  -->
+            <section class="container my-5" id="contacts">
+                <h2 class="text-warning mb-3 section-title">Contact Me</h2>
+                <p>Want to collaborate or ask something? Reach out using the form below.</p>
+                <form action="">
+                    <input type="text" class="form-control my-2" placeholder="Your Name">
+                    <input type="email" class="form-control my-2" placeholder="Your Email">
+                    <textarea name="" class="form-control my-2" rows="4" placeholder="Your Message" id=""></textarea>
+                    <button type="submit" class="btn btn-warning mt-2">Send Message</button>
+                </form>
+            </section>
+            <!-- footer  -->
+            <footer class="text-center py-3 border-top mt-5">
+                &copy; 2025 Asadullah. All rights reserved.
+            </footer>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
