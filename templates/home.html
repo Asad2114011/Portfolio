@@ -74,12 +74,12 @@
 <body class="container-fluid">
     <!-- navbar  -->
     <div class="row">
-        <div class=" col-md-6 col-sm-12 left">
+        <div class=" col-md-5 col-sm-12 left">
             <!-- main  -->
             <section class="container text-center my-5">
                 <div class="row align-items-center">
                     <div class=" text-md-start">
-                        <h1 class="display-4 fw-bold" style="color: #E2e8F0; font-size:48px;">Asad Galib</h1>
+                        <h1 class="display-4 fw-bold" style=" font-size:48px;">Asad Galib</h1>
                         <h4 class="fw-bold" style="color:  #E2e8F0;">Competitive Programmer</h4>
                         <p>I build accessible, pixel-perfect digital <br> experiences for the web.</p>
                     </div>
@@ -128,10 +128,10 @@
 
 
         </div>
-        <div class="col-md-6 col-sm-12 right">
+        <div class="col-md-7 col-sm-12 right">
             <!-- about  -->
             <section class="container about my- 5 " id="about">
-                <h2 class="text-warning mb-3 section-title">About Me</h2>
+                <h2 class=" mb-3 section-title">About Me</h2>
                 <p> I’m a developer passionate about crafting accessible, pixel-perfect user interfaces that blend
                     thoughtful design with robust engineering. My favorite work lies at the intersection of design and
                     development, creating experiences that not only look great but are meticulously built for
@@ -146,30 +146,53 @@
             </section>
             <!-- skills  -->
             <section class="container my-5 " id="skills">
-                <h2 class="text-warning mb-3 section-title">Skills</h2>
+                <h2 class="mb-3 section-title">Skills</h2>
                 <div class="row">
-                    <div class="my-2">
+                    <div class="my-1">
                         <p>⚙️ <span style="font-weight: bold; font-size: medium;">Competitive Programming</span> => C,
                             C++, DSA, STL, Algorithms</p>
                     </div>
-                    <div class="my-2">
+                    <div class="my-1">
                         <p>🌐 <span style="font-weight: bold; font-size: medium;">Web Development</span>=> HTML, CSS,
                             JavaScript, Bootstrap, Django</p>
                     </div>
-                    <div class="my-2">
+                    <div class="my-1">
                         <p>🌐 <span style="font-weight: bold; font-size: medium;">App Development</span>=>
                             Flutter,Dart,Cross-platform Apps</p>
                     </div>
-                    <div class="my-2">
+                    <div class="my-1">
                         <p>🌱 <span style="font-weight: bold; font-size: medium;">Tools</span>=> VSCode, Git, Github</p>
                     </div>
                 </div>
             </section>
             <!-- cp profiles  -->
             <section class="container my-5 " id="cp">
-                <h2 class="text-warning mb-3 section-title">Competitive Programming</h2>
+                <h2 class=" mb-3 section-title">Competitive Programming</h2>
                 <ul class="list-unstyled text-muted">
-                    <li class="cp-judge">
+                    {% for cp in cp_details %}
+                    <li class="cp-judge my-2"><a href="{{cp.link}}" target="_blank" class="cp-anchor ">
+                            <div class="cp-link">
+                                <p class="cp-title">
+                                    <img src="{{cp.image_url}}" class="cp-icon atcoder-icon">
+                                    {{cp.title}}
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                </p>
+                                <p class="cp-details">{{cp.description}}</p>
+                            </div>
+                            <div class="cp-card">
+                                <p><span class="d-inline-flex focus-ring  py-1 px-3 text-decoration-none  rounded-4">
+                                        {{cp.rank}}</span></p>
+                                <p><span class="d-inline-flex focus-ring  py-1 px-3 text-decoration-none  rounded-4">
+                                        Rating(max):{{cp.rating}}</span></p>
+                                <p><span class="d-inline-flex focus-ring  py-1 px-3 text-decoration-none  rounded-4">
+                                        Solved:{{cp.solve}}+</span></p>
+                                <p><span class="d-inline-flex focus-ring  py-1 px-3 text-decoration-none  rounded-4">
+                                        Contest:{{cp.contest}}+</span></p>
+                            </div>
+                        </a>
+                    </li>
+                    {% endfor%}
+                    <!-- <li class="cp-judge">
                         <a href="https://codeforces.com/profile/AsadGalib" target="_blank" class="cp-anchor">
                             <div class="cp-link">
                                 <p class="cp-title">
@@ -183,6 +206,20 @@
                                     strengthen algorithmic thinking, debugging skills, and performance under time
                                     pressure.
                                 </p>
+                            </div>
+                            <div class="cp-card">
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Pupil</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Ratings(max):1275</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        solved:1100+</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Contests:70+</span></p>
                             </div>
                         </a>
                     </li>
@@ -200,6 +237,20 @@
                                     implementation skills and mathematical thinking.
                                 </p>
                             </div>
+                            <div class="cp-card">
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Pupil</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Ratings(max):1275</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        solved:1100+</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Contests:70+</span></p>
+                            </div>
                         </a>
                     </li>
                     <li class="cp-judge"><a href="https://atcoder.jp/users/asad_galib" target="_blank"
@@ -216,50 +267,106 @@
                                     and precision,
                                     helping me improve accuracy and efficiency.</p>
                             </div>
+                            <div class="cp-card">
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Pupil</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Ratings(max):1275</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        solved:1100+</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Contests:70+</span></p>
+                            </div>
                         </a>
                     </li>
+                    <li class="cp-judge"><a href="https://leetcode.com/u/AsadGalib11/" target="_blank"
+                            class="cp-anchor ">
+                            <div class="cp-link">
+                                <p class="cp-title">
+                                    <img src="https://img.icons8.com/?size=100&id=9L16NypUzu38&format=png&color=000000"
+                                        class="cp-icon atcoder-icon">
+                                     Leetcode
+                                    <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                </p>
+                                <p class="cp-details">Leetcode offers high-quality problems with a strong focus on clean
+                                    logic
+                                    and precision,
+                                    helping me improve accuracy and efficiency.</p>
+                            </div>
+                            <div class="cp-card">
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Pupil</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Ratings(max):1275</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        solved:1100+</span></p>
+                                <p><span
+                                        class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">
+                                        Contests:70+</span></p>
+                            </div>
+                        </a>
+                    </li> -->
                 </ul>
             </section>
+             <!-- resume  -->
+            <section>
+               <a href="#"> <p><span class="d-inline-flex focus-ring  py-1 px-3 text-decoration-none  rounded-4">
+                        View full resume<i class="fa-solid fa-arrow-up-right-from-square arrow"></i></span></p></a>
+            </section>
             <!-- projects -->
-            <section class="container my-5 " id="projects">
-                <h2 class="text-warning mb-4 section-title">Projects</h2>
-                <div class="g-4 gap-5">
-                    <div class="card bg-secondary text-white my-3">
-                        <div class="card-body ">
-                            <h5 class="card-title fw-bold">Portfolio Website</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat
-                                aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
-                            <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
-                        </div>
-                    </div>
-                    <div class=" card bg-secondary text-white my-3">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">Food website</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat
-                                aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
-                            <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
-                        </div>
-                    </div>
-                    <div class=" card bg-secondary text-white my-3">
-                        <div class="card-body">
-                            <h5 class="card-title fw-bold">E-commerce Website</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odit magnam nulla eum repellat
-                                aspernatur blanditiis asperiores tempore obcaecati quas fuga.</p>
-                            <a href="#" class="btn btn-light btn-sm card-button">View Code</a>
-                        </div>
-                    </div>
+            <section class="container" id="projects">
+                <h2 class=" section-title">Projects</h2>
+                {% for cur in projects %}
+                <li class="project my-3">
+                    <a href="{{cur.link}}" target="_blank" class="cp-anchor">
+                        <div class="row">
+                            <div class="col-lg-4 project-image">
+                                {% if cur.image %}
+                                <img src="{{cur.image.url}}" alt="{{cur.title}}" class="img-fluid">
+                                {% endif %}
+                            </div>
 
-                </div>
+                            <div class="col-lg-8 project-details">
+                                <div class="project-link">
+                                    <p class="project-title">
+                                        {{cur.title}}
+                                        <i class="fa-solid fa-arrow-up-right-from-square arrow"></i>
+                                    </p>
+                                    <p class="project-details">{{cur.description}}</p>
+                                </div>
 
+                                <div class="cp-card">
+                                    {% for tag in cur.tags.all %}
+                                    <p>
+                                        <span
+                                            class="d-inline-flex focus-ring py-1 px-3 text-decoration-none  rounded-4">
+                                            {{tag.name}}
+                                        </span>
+                                    </p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
             </section>
             <!-- contact  -->
             <section class="container my-5" id="contacts">
                 <h2 class="text-warning mb-3 section-title">Contact Me</h2>
                 <p>Want to collaborate or ask something? Reach out using the form below.</p>
-                <form action="">
-                    <input type="text" class="form-control my-2" placeholder="Your Name">
-                    <input type="email" class="form-control my-2" placeholder="Your Email">
-                    <textarea name="" class="form-control my-2" rows="4" placeholder="Your Message" id=""></textarea>
+                <form method="POST" action="{% url 'contact'%}">
+                    {% csrf_token%}
+                    <input type="text" class="form-control my-2" name="name" placeholder="Your Name">
+                    <input type="email" class="form-control my-2" name="email" placeholder="Your Email">
+                    <textarea type="text" class="form-control my-2" rows="4" name="message" placeholder="Your Message" id=""></textarea>
                     <button type="submit" class="btn btn-warning mt-2">Send Message</button>
                 </form>
             </section>
