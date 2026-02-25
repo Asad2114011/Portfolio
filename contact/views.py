@@ -2,6 +2,10 @@ from django.shortcuts import render,redirect
 from .forms import ContactForm
 from django.core.mail import send_mail
 from django.conf import settings
+import resend
+import os
+from django.contrib import messages
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -10,22 +14,22 @@ def contact_view(request):
         form=ContactForm(request.POST)
         if form.is_valid():
             contact= form.save()
+            print('fetch working!')
+            try:
+                resend.api_key = os.getenv('RESEND_API_KEY')
+                EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
+                resend.Emails.send({
+                    "from": "onboarding@resend.dev",
+                    "to": EMAIL_HOST_USER,
+                    "subject": f"New contact message from {contact.name}",
+                    "text": f"Name: {contact.name}\nEmail: {contact.email}\nMessage: {contact.message}"
+                })
+                return JsonResponse({'success':True,'message':'Message sent successfully!'})
+            except Exception as e:
+                print(f"Email failed: {e}")
+                return JsonResponse({'success': False, 'message': f'Something went wrong: {str(e)}'})
 
-            send_mail(
-                subject=f"New Contact Message from {contact.name}",
-                message=f"""
-                    Name:{contact.name}
-                    Email:{contact.email}
-                    Message:
-                            {contact.message}
-                    """,
-                    from_email=settings.EMAIL_HOST_USER,
-                    recipient_list=[settings.EMAIL_HOST_USER],
-                    fail_silently=False,
-            )
-
-            return redirect('home')
     else:
-        form=ContactForm()
+        return JsonResponse({'success':False,'message':'Invalid form submisson.'})
         
-    return redirect('home')
+    return JsonResponse({'success':False,'message':'Invalid request.'})

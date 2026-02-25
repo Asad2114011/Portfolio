@@ -1,4 +1,5 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,54 +16,18 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const light = document.querySelector(".cursor-light");
-            document.addEventListener("mousemove", (e) => {
-                light.style.left = e.clientX + "px";
-                light.style.top = e.clientY + "px";
-            });
-
-            const navLinks = document.querySelectorAll('.nav-anim');
-            const sections = document.querySelectorAll('section[id]');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function (e) {
-                    navLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-
-            function activateNavOnScroll() {
-                let currentSection = '';
-                const scrollPosition = window.scrollY + 200; 
-
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.clientHeight;
-                    const sectionId = section.getAttribute('id');
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        currentSection = sectionId;
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${currentSection}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', activateNavOnScroll);
-
-            activateNavOnScroll();
-        });
-    </script>
+    
 </head>
 <div class="cursor-light"></div>
-
+<!-- msg  -->
+ <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 99999;">
+  <div id="liveToast" class="toast align-items-center text-white border-0 " role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMessage"></div>
+      <button class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+ </div>
 <body class="container-fluid">
     <!-- navbar  -->
     <div class="row">
@@ -78,7 +43,7 @@
                 </div>
             </section>
             <!-- nav  -->
-            <section class="container my-5 nav">
+            <section class="container my-1 nav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link nav-anim" href="#about">
@@ -98,6 +63,11 @@
                     <li class="nav-item">
                         <a class="nav-link nav-anim" href="#projects">
                             <span class="dash"></span>PROJECTS
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-anim" href="#blogs">
+                            <span class="dash"></span>BLOGS
                         </a>
                     </li>
                     <li class="nav-item">
@@ -315,7 +285,7 @@
                 </a>
             </section>
             <!-- projects -->
-            <section class="container" id="projects">
+            <section class="container" style="margin-bottom: 80px;" id="projects">
                 <h2 class=" section-title">Projects</h2>
                 {% for cur in projects %}
                 <li class="project my-3">
@@ -352,6 +322,51 @@
                 </li>
                 {% endfor %}
             </section>
+            <!-- blogs -->
+            <section class="container" id="blogs">
+                <h2 class=" section-title">Blogs</h2>
+                {% for cur in blogs %}
+                <li class="project my-3">
+                    <a href="{{cur.link}}" target="_blank" class="cp-anchor">
+                        <div class="row">
+                            <div class="col-lg-4 project-image">
+                                {% if cur.image %}
+                                <img src="{{cur.image.url}}" alt="{{cur.title}}" class="img-fluid">
+                                {% endif %}
+                            </div>
+
+                            <div class="col-lg-8 project-details">
+                                <div class="project-link">
+                                    <p class="project-title">
+                                        {{cur.title}}
+                                        <!-- <i class="fa-solid fa-arrow-up-right-from-square arrow"></i> -->
+                                    </p>
+                                    <p class="project-details">{{cur.description|truncatewords:30}}</p>
+                                </div>
+
+                                <!-- <div class="cp-card">
+                                    {% for tag in cur.tags.all %}
+                                    <p>
+                                        <span
+                                            class="d-inline-flex focus-ring py-1 px-3 text-decoration-none  rounded-4">
+                                            {{tag.name}}
+                                        </span>
+                                    </p>
+                                    {% endfor %}
+                                </div> -->
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                {% endfor %}
+            </section>
+            <!-- all blogs  -->
+              <section>
+                <a href="#">
+                    <p><span class="d-inline-flex focus-ring  py-1 px-3 text-decoration-none  rounded-4">
+                            View all blogs<i class="fa-solid fa-arrow-up-right-from-square arrow"></i></span></p>
+                </a>
+            </section>
             <!-- contact  -->
             <section class="container my-5" id="contacts">
                 <h2 class="section-title mb-3">Contact Me</h2>
@@ -382,6 +397,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <script src="{% static 'js/home.js'%}"></script>
 </body>
 
 </html>
