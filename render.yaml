@@ -3,4 +3,4 @@ services:
     name: django-blog
     env: python
     buildCommand: "./build.sh"
-    startCommand: "gunicorn blog_project.wsgi:application"
+    startCommand: "gunicorn Portfolio.wsgi:application"
