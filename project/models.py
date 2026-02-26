@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Tag(models.Model):
@@ -12,7 +13,7 @@ class project(models.Model):
     title=models.CharField(max_length=200)
     link=models.URLField(blank=True ,null=True)
     description=models.TextField()
-    image=models.ImageField(upload_to='project/', null=True,blank=True)
+    image=CloudinaryField('project', null=True,blank=True)
     priority=models.PositiveIntegerField(default=1)
 
     tags=models.ManyToManyField(
